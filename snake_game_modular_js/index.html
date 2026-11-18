@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snake Arcade 🐍 (Modular Web Edition)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="arcade-wrapper">
+        <!-- Arcade Header -->
+        <header class="arcade-header">
+            <h1 class="arcade-title">SNAKE ARCADE 🐍</h1>
+            <p class="arcade-subtitle">Modular ES6 Edition • HTML5 Canvas</p>
+        </header>
+
+        <!-- Cabinet Screen Frame -->
+        <main class="screen-container">
+            <canvas id="gameCanvas" width="672" height="636" aria-label="Snake Game Board"></canvas>
+        </main>
+
+        <!-- Controls Section -->
+        <footer class="controls-section">
+            <!-- Desktop Keyboard Cheat-Sheet -->
+            <div class="key-hints">
+                <div class="key-group">
+                    <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd>
+                    <span>Move</span>
+                </div>
+                <div class="key-group">
+                    <kbd>Space</kbd> / <kbd>Enter</kbd>
+                    <span>Start</span>
+                </div>
+                <div class="key-group">
+                    <kbd>P</kbd>
+                    <span>Pause</span>
+                </div>
+                <div class="key-group">
+                    <kbd>R</kbd>
+                    <span>Restart</span>
+                </div>
+            </div>
+
+            <!-- Virtual Touch / Mobile D-Pad Controls -->
+            <div class="virtual-controls" aria-label="Mobile Gamepad Controls">
+                <div class="d-pad">
+                    <button type="button" class="pad-btn up" data-action="UP" aria-label="Up">▲</button>
+                    <button type="button" class="pad-btn left" data-action="LEFT" aria-label="Left">◀</button>
+                    <button type="button" class="pad-btn down" data-action="DOWN" aria-label="Down">▼</button>
+                    <button type="button" class="pad-btn right" data-action="RIGHT" aria-label="Right">▶</button>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="action-btn accent" data-action="START">Play / Resume</button>
+                    <button type="button" class="action-btn" data-action="RESTART">Restart (R)</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modular Application Script -->
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

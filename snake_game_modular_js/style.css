@@ -1,0 +1,223 @@
+/*
+ * Snake Arcade (Modular Edition) - CSS Stylesheet
+ */
+
+:root {
+    --bg-dark: #0a0d14;
+    --card-bg: #121622;
+    --border-color: #1e2638;
+    --neon-green: #40e082;
+    --neon-gold: #ffd700;
+    --neon-red: #ff4b4b;
+    --text-primary: #f0f4ff;
+    --text-muted: #8c96b4;
+    --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    overflow-x: hidden;
+}
+
+.arcade-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 720px;
+}
+
+/* Header branding */
+.arcade-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.arcade-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--neon-green);
+    text-shadow: 0 0 16px rgba(64, 224, 130, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.arcade-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-top: 0.2rem;
+}
+
+/* Cabinet Screen Box */
+.screen-container {
+    position: relative;
+    background-color: #0c0f18;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7),
+                0 0 0 1px var(--border-color),
+                0 0 25px rgba(64, 224, 130, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#gameCanvas {
+    display: block;
+    border-radius: 8px;
+    background-color: #121622;
+    width: 100%;
+    max-width: 672px;
+    height: auto;
+    aspect-ratio: 672 / 636;
+    image-rendering: pixelated;
+}
+
+/* Controls Hint / Virtual Controller Section */
+.controls-section {
+    width: 100%;
+    max-width: 672px;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Keyboard cheat-sheet */
+.key-hints {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+}
+
+.key-group {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+kbd {
+    display: inline-block;
+    padding: 0.2rem 0.45rem;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: #1c2234;
+    border: 1px solid #2b354e;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 #101420;
+}
+
+/* On-Screen Mobile D-Pad & Action Buttons */
+.virtual-controls {
+    display: none; /* Shown on small screens or touch */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+    .virtual-controls {
+        display: flex;
+    }
+}
+
+.d-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 56px);
+    grid-template-rows: repeat(3, 52px);
+    gap: 6px;
+}
+
+.pad-btn {
+    background: #192033;
+    border: 1px solid #2b354e;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #0f131f;
+    transition: transform 0.05s, background-color 0.1s;
+    touch-action: manipulation;
+}
+
+.pad-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #0f131f;
+    background: #25304a;
+}
+
+.pad-btn.up    { grid-column: 2; grid-row: 1; }
+.pad-btn.left  { grid-column: 1; grid-row: 2; }
+.pad-btn.down  { grid-column: 2; grid-row: 3; }
+.pad-btn.right { grid-column: 3; grid-row: 2; }
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    background: #1c2234;
+    color: var(--text-primary);
+    border: 1px solid #2e3852;
+    padding: 0.75rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #0f131f;
+    transition: transform 0.05s, background-color 0.1s;
+    touch-action: manipulation;
+}
+
+.action-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #0f131f;
+    background: #28344e;
+}
+
+.action-btn.accent {
+    background: #2d5a3f;
+    border-color: var(--neon-green);
+    color: #a8ffd2;
+}
+
+.action-btn.accent:active {
+    background: #1f422e;
+}
